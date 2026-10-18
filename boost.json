@@ -1,4 +1,11 @@
 {
+    "agents": [
+        "antigravity",
+        "claude_code",
+        "codex",
+        "cursor",
+        "opencode"
+    ],
     "cloud": true,
     "guidelines": true,
     "mcp": true,
@@ -9,6 +16,8 @@
         "deploying-to-cloud",
         "laravel-best-practices",
         "testing-best-practices",
+        "livewire-development",
+        "volt-development",
         "tailwindcss-development"
     ]
 }
