@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('habits', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+            $table->foreignId('category_id')
+                  ->nullable()
+                  ->constrained()
+                  ->onDelete('set null');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('color')->default('#84A98C');
+            $table->string('icon')->nullable();
+            $table->enum('frequency', ['daily', 'weekly'])->default('daily');
+            $table->boolean('is_active')->default('true');
+            $table->integer('sort_order')->default('0');
+            $table->time('reminder_time')->nullable();
             $table->timestamps();
         });
     }

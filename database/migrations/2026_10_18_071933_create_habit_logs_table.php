@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('habit_logs', function (Blueprint $table) {
             $table->id();
+            $tabel->foreignId('habit_id')
+            
             $table->timestamps();
         });
     }
