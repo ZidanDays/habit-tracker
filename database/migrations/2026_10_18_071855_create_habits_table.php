@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('color')->default('#84A98C');
             $table->string('icon')->nullable();
             $table->enum('frequency', ['daily', 'weekly'])->default('daily');
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default('0');
             $table->time('reminder_time')->nullable();
             $table->timestamps();

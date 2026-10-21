@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('daily_reflections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+            $table->date('reflection_date');
+            $table->text('content');
             $table->timestamps();
+
+            // Satu user hanya boleh punya satu reflesi per tanggal
+            $table->unique(['user_id', 'reflection_date']);
         });
     }
 

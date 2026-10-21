@@ -13,9 +13,23 @@ return new class extends Migration
     {
         Schema::create('habit_logs', function (Blueprint $table) {
             $table->id();
-            $tabel->foreignId('habit_id')
-            
+            $table->foreignId('habit_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+            $table->date('log_date');
+            $table->boolean('is_done')->default(false);
+            $table->text('note')->nullable();
             $table->timestamps();
+
+
+            //UNIQUE contraint: satu habit hanya boleh punya Satu log per tanggal
+            //ini mencegah duplikasi data keluar kalauser klik toggle berkali - kali
+
+            $table->unique(['habit_id', 'log_date']);
+
         });
     }
 
