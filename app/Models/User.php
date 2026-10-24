@@ -46,4 +46,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //user punya BANYAK Habit
+    public function Habits () {
+        return $this->hasMany(Habit::class);
+    }
+
+    //user punya BANYAK Category
+    public function categories () {
+        return $this->hasMany(Category::class);
+    }
+
+    //user punya BANYAK DailyReflection
+    public function reflections () {
+        return $this->hasMany(DailyReflection::class);
+    }
 }

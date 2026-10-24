@@ -21,6 +21,7 @@ class DailyReflection extends Model
         'reflection_date' => 'date'
     ];
 
+    //DailyReflection MILIK satu User
     public function user()
     {
         return $this->belongsTo(User::class);
